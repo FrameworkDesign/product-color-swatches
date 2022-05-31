@@ -516,7 +516,7 @@ var render = function () {
         style: {
           height: "28px",
           width: _vm.colorWidths,
-          backgroundColor: index,
+          backgroundColor: color,
         },
       })
     }),
@@ -659,7 +659,7 @@ var render = function () {
         style: {
           height: "20px",
           width: _vm.colorWidths,
-          backgroundColor: index,
+          backgroundColor: color,
         },
       })
     }),

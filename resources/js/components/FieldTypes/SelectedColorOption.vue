@@ -6,7 +6,7 @@
             :style="{
                 height: '20px',
                 width: colorWidths,
-                backgroundColor: index
+                backgroundColor: color
             }"
         ></div>
     </div>
