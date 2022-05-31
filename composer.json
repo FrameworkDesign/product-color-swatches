@@ -1,0 +1,19 @@
+{
+    "name": "weareframework/product-color-swatches",
+    "autoload": {
+        "psr-4": {
+            "Weareframework\\ProductColorSwatches\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Product Color Swatches",
+            "description": "Product Color Swatches addon"
+        },
+        "laravel": {
+            "providers": [
+                "Weareframework\\ProductColorSwatches\\ServiceProvider"
+            ]
+        }
+    }
+}
