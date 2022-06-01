@@ -5,7 +5,7 @@ namespace Weareframework\ProductColorSwatches\Tags;
 use Statamic\Support\Str;
 use Statamic\Tags\Tags;
 
-class ProductColorSwatches extends Tags
+class ProductColorSwatchesTag extends Tags
 {
     public static function render(...$arguments): string
     {

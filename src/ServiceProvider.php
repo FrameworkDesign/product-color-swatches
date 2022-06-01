@@ -13,6 +13,7 @@ use Statamic\Stache\Stache;
 use Statamic\Statamic;
 use Weareframework\ProductColorSwatches\Fieldtypes\ProductColorSwatch;
 use Weareframework\ProductColorSwatches\Stache\ProductColorSwatchStore;
+use Weareframework\ProductColorSwatches\Tags\ProductColorSwatchesTag;
 
 class ServiceProvider extends AddonServiceProvider
 {
@@ -22,6 +23,10 @@ class ServiceProvider extends AddonServiceProvider
 
     protected $routes = [
         'cp' => __DIR__.'/../routes/cp.php',
+    ];
+
+    protected $tags = [
+        ProductColorSwatchesTag::class,
     ];
 
     protected $fieldtypes = [
