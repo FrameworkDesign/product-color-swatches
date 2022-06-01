@@ -58,11 +58,23 @@ class ServiceProvider extends AddonServiceProvider
 
         Statamic::booted(function () {
             $this->bootAddonNav()
+                ->bootAddonViews()
                 ->bootStores()
                 ->bootDirectives()
                 ->bootDatabase()
                 ->bootPermissions();
         });
+    }
+
+    protected function bootAddonViews(): self
+    {
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'product-color-swatches');
+
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/product-color-swatches'),
+        ], 'product-color-swatches-views');
+
+        return $this;
     }
 
     protected function bootAddonNav()
@@ -82,8 +94,8 @@ class ServiceProvider extends AddonServiceProvider
 
     protected function bootDirectives(): self
     {
-        Blade::directive('product_colors_watches', function () {
-            return "<?php echo \Weareframework\ProductColorSwatches\Tags\ProductColorSwatches::render([]); ?>";
+        Blade::directive('product_color_swatch', function ($arguments) {
+            return "<?php echo \Weareframework\ProductColorSwatches\Tags\ProductColorSwatches::render({$arguments}); ?>";
         });
 
         return $this;

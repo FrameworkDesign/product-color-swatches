@@ -45,3 +45,31 @@ the docs at statamic refer to how to do this also: https://statamic.dev/extendin
 ## How to Use
 
 Install it, use it, let your site abuse it
+
+
+This can be used within Antlers using the product_color_swatch tag:
+
+```twig
+{{ product_color_swatch :field="product_color_swatch_field" }}
+```
+
+
+## Templating
+
+Pass an image to the `product_color_swatch` tag.
+
+```twig
+{{ product_color_swatch :field="product_color_swatch_field" }}
+```
+
+This will render a default product_color_swatch tag with the default colors output.
+
+## Customizing the generated html
+
+If you want to customize the generated html, you can publish the views using
+
+```bash
+php artisan vendor:publish
+```
+
+and choosing `Weareframework\ProductColorSwatches\ServiceProvider`

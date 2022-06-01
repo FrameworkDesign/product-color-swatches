@@ -63,7 +63,7 @@ export default {
                 selections = [selections];
             }
             return selections.map(value => {
-                return _.findWhere(this.options, {value}) || {value, key: value};
+                return this.options.find(element => element.value === value) || {value, key: value}
             });
         },
     },

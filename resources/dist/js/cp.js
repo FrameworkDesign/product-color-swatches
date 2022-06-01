@@ -212,8 +212,8 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return selections.map(function (value) {
-        return _.findWhere(_this.options, {
-          value: value
+        return _this.options.find(function (element) {
+          return element.value === value;
         }) || {
           value: value,
           key: value
@@ -1466,7 +1466,7 @@ Statamic.booting(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/framework000/CodeValet/statamic-fwk/addons/weareframework/product-color-swatches/resources/js/cp.js */"./resources/js/cp.js");
+module.exports = __webpack_require__(/*! /Users/framework000/CodeValet/fwk-statamic-test/addons/weareframework/product-color-swatches/resources/js/cp.js */"./resources/js/cp.js");
 
 
 /***/ })

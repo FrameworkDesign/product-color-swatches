@@ -9,3 +9,4 @@ Statamic.booting(() => {
 
     Statamic.$components.register("product_color_swatch-fieldtype", ProductColorSwatchFieldType);
 });
+
