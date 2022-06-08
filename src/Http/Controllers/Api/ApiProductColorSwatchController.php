@@ -31,7 +31,7 @@ class ApiProductColorSwatchController extends CpController
         $sortDirection = request('order', 'asc');
 
         if (! $sortField && ! request('search')) {
-            $sortField = 'src';
+            $sortField = 'name';
             $sortDirection = 'asc';
         }
 

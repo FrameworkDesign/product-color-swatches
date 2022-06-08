@@ -8,7 +8,7 @@ use Statamic\Facades\Scope;
 use Statamic\Http\Controllers\CP\CpController;
 use Weareframework\ProductColorSwatches\Blueprints\ProductColorSwatchBlueprint;
 use Weareframework\ProductColorSwatches\Data\ProductColorSwatch;
-use Weareframework\ProductColorSwatches\Http\Resources\ProductColorSwatchItemResource;
+use Weareframework\ProductColorSwatches\Http\Resources\MotorcycleDealerItemResource;
 
 class ProductColorSwatchController extends CpController
 {
@@ -81,7 +81,7 @@ class ProductColorSwatchController extends CpController
 
         session()->flash('success', 'Product Color Swatch created successfully');
 
-        return new ProductColorSwatchItemResource($productColorSwatch);
+        return new MotorcycleDealerItemResource($productColorSwatch);
     }
 
     public function update($id, Request $request)
@@ -109,7 +109,7 @@ class ProductColorSwatchController extends CpController
 
         session()->flash('success', 'Product Color Swatch updated successfully');
 
-        return new ProductColorSwatchItemResource($productColorSwatch);
+        return new MotorcycleDealerItemResource($productColorSwatch);
     }
 
     public function destroy($id)
