@@ -108,6 +108,19 @@ class ProductColorSwatch
         return $this->$key() ?? $fallback;
     }
 
+    public function fill($values = [])
+    {
+        if (empty($values)) {
+            return $this;
+        }
+        foreach($values as $key => $value) {
+            if (in_array($key, array_keys($this->fileData()))) {
+                $this->fluentlyGetOrSet($key)->args([$value]);
+            }
+        }
+        return $this;
+    }
+
     public function id($id = null)
     {
         return $this->fluentlyGetOrSet('id')->args(func_get_args());

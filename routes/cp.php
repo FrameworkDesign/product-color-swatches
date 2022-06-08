@@ -1,12 +1,20 @@
 <?php
 
-use Weareframework\ProductColorSwatches\Http\Controllers\Web\ProductColorSwatchController;
+use Weareframework\ProductColorSwatches\Http\Controllers\Cp\Web\ProductColorSwatchController;
+use Weareframework\ProductColorSwatches\Http\Controllers\Cp\Web\ImportProductColorSwatchesController;
+use Weareframework\ProductColorSwatches\Http\Controllers\Cp\Web\ExportProductColorSwatchesController;
 
-use Weareframework\ProductColorSwatches\Http\Controllers\Api\ApiProductColorSwatchController;
+use Weareframework\ProductColorSwatches\Http\Controllers\Cp\Api\ApiProductColorSwatchController;
 
 Route::get('product-color-swatch/api/product-color-swatches', ['\\' . ApiProductColorSwatchController::class, 'index'])->name('weareframework.product-color-swatches.api.index');
 
 Route::prefix('weareframework/product-color-swatches')->group(function () {
+
+    Route::get('/import/index', ['\\' . ImportProductColorSwatchesController::class, 'index'])->name('weareframework.product-color-swatches.import');
+    Route::post('/import/data', ['\\' . ImportProductColorSwatchesController::class, 'store'])->name('weareframework.product-color-swatches.handleImport');
+
+    Route::get('/export/{type}', ['\\' . ExportProductColorSwatchesController::class, 'index'])->name('weareframework.product-color-swatches.export');
+
     Route::get('/list', ['\\'. ProductColorSwatchController::class, 'index'])->name('weareframework.product-color-swatches.index');
     Route::get('/create', ['\\'. ProductColorSwatchController::class, 'create'])->name('weareframework.product-color-swatches.create');
     Route::post('/store', ['\\'. ProductColorSwatchController::class, 'store'])->name('weareframework.product-color-swatches.store');

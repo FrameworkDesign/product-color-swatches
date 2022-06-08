@@ -1,6 +1,6 @@
 <?php
 
-namespace Weareframework\ProductColorSwatches\Http\Controllers\Api;
+namespace Weareframework\ProductColorSwatches\Http\Controllers\Cp\Api;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;

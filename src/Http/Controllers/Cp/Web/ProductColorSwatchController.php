@@ -1,6 +1,6 @@
 <?php
 
-namespace Weareframework\ProductColorSwatches\Http\Controllers\Web;
+namespace Weareframework\ProductColorSwatches\Http\Controllers\Cp\Web;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use Statamic\Facades\Scope;
 use Statamic\Http\Controllers\CP\CpController;
 use Weareframework\ProductColorSwatches\Blueprints\ProductColorSwatchBlueprint;
 use Weareframework\ProductColorSwatches\Data\ProductColorSwatch;
-use Weareframework\ProductColorSwatches\Http\Resources\MotorcycleDealerItemResource;
+use Weareframework\ProductColorSwatches\Http\Resources\ProductColorSwatchItemResource;
 
 class ProductColorSwatchController extends CpController
 {
@@ -70,18 +70,13 @@ class ProductColorSwatchController extends CpController
         $fields = $blueprint()->fields()->addValues($request->all());
         $fields->validate();
 
-        $productColorSwatch = ProductColorSwatch::make()
-            ->src($request->get('src'))
-            ->name($request->get('name'))
-            ->key($request->get('key'))
-            ->colors($request->get('colors'))
-            ->enabled($request->get('enabled'));
+        $productColorSwatch = ProductColorSwatch::make()->fill($request->all());
 
         $productColorSwatch->save();
 
         session()->flash('success', 'Product Color Swatch created successfully');
 
-        return new MotorcycleDealerItemResource($productColorSwatch);
+        return new ProductColorSwatchItemResource($productColorSwatch);
     }
 
     public function update($id, Request $request)
@@ -98,18 +93,12 @@ class ProductColorSwatchController extends CpController
             abort('404');
         }
 
-        $productColorSwatch
-            ->src($request->get('src'))
-            ->name($request->get('name'))
-            ->key($request->get('key'))
-            ->colors($request->get('colors'))
-            ->enabled($request->get('enabled'));
-
+        $productColorSwatch->fill($request->all());
         $productColorSwatch->save();
 
         session()->flash('success', 'Product Color Swatch updated successfully');
 
-        return new MotorcycleDealerItemResource($productColorSwatch);
+        return new ProductColorSwatchItemResource($productColorSwatch);
     }
 
     public function destroy($id)

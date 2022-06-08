@@ -14,6 +14,13 @@ return [
      */
     'product_color_swatches_store' => base_path('content/product-color-swatches'),
 
+    'fields' => [
+        'name',
+        'key',
+        'colors',
+        'svg',
+    ],
+
     'settings-blueprint' => [
         'name' => [
             'display' => 'General',
