@@ -60,6 +60,16 @@ class ProductColorSwatch
         return self::query()->where('id', $id)->first();
     }
 
+    public static function findByName($name): ?self
+    {
+        return self::query()->where('name', $name)->first();
+    }
+
+    public static function findByKey($key): ?self
+    {
+        return self::query()->where('key', $key)->first();
+    }
+
     public function path()
     {
         return vsprintf('%s/%s.yaml', [

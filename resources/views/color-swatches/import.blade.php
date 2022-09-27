@@ -1,6 +1,6 @@
 @extends('statamic::layout')
 
-@section('title', 'Import Motorcycle Dealers')
+@section('title', 'Import Product color swatches')
 @section('wrapper_class', 'max-w-3xl')
 
 @section('content')

@@ -49,7 +49,6 @@ class ImportProductColorSwatchesController extends CpController
         $reader->getRows()->each(function (array $data) use (&$skipped) {
             if (! $data['name'] || ! $data['key'] || ! $data['colors']) {
                 $skipped++;
-
                 return;
             }
 

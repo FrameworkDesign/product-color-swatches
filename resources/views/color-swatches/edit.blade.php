@@ -1,6 +1,6 @@
 @extends('statamic::layout')
 
-@section('title', 'Edit redirect')
+@section('title', 'Edit Product color swatche')
 @section('wrapper_class', 'max-w-3xl')
 
 @section('content')

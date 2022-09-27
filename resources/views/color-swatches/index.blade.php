@@ -4,6 +4,8 @@
     <div class="flex mb-3">
         <h1 class="flex-1">Product Color Swatches</h1>
 
+        <a href="{{ cp_route('weareframework.product-color-swatches.settings.index') }}" class="btn mr-1">Settings</a>
+
         @if(auth()->user()->isSuper() || auth()->user()->hasPermission('create productcolorswatches'))
             <a href="{{ cp_route('weareframework.product-color-swatches.import') }}" class="btn mr-1">Import csv</a>
         @endif
