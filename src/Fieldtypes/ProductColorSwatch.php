@@ -43,18 +43,15 @@ class ProductColorSwatch extends Fieldtype
 
     public function preProcess($values)
     {
-        Log::info('ProductColorSwatch preProcess: ' . json_encode($values));
         if (is_null($values)) {
             return null;
         }
 
         return $values;
-//        return $this->fields()->addValues($data ?? [])->preProcess()->values()->all();
     }
 
     public function process($data)
     {
-        Log::info('ProductColorSwatch $data: ' . json_encode($data));
         return $data;
     }
 
