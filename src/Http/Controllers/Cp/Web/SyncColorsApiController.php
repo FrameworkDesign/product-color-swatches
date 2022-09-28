@@ -69,8 +69,6 @@ class SyncColorsApiController extends CpController
                         }
                     }
 
-//                    dd($productColorSwatch, $uniqueColorExplode, $colorsArray, $uniqueColor, $pluckedColors);
-
                     // update or create ProductColorSwatch
                     $productColorSwatch->fill([
                         'enabled' => true,

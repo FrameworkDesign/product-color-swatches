@@ -25,6 +25,11 @@ class ProductColorSwatchesTag extends Tags
             }
 
             $productColorSwatch = ProductColorSwatch::query()->where('key', $field)->get()->first();
+
+            if (is_null($productColorSwatch)) {
+                return $this->emptyDataView();
+            }
+
             $productColorSwatchValues = $productColorSwatch->fileData();
             $productColorSwatchBlueprint = new ProductColorSwatchBlueprint();
             $productColorSwatchFields = $productColorSwatchBlueprint()->fields()->addValues($productColorSwatchValues)->preProcess();
@@ -36,8 +41,17 @@ class ProductColorSwatchesTag extends Tags
                 'colors' => $values['colors'] ?? []
             ])->render();
         } catch (\Exception $e) {
-            return '';
+            return $this->emptyDataView();
         }
+    }
+
+    private function emptyDataView()
+    {
+        return view('product-color-swatches::tags.index', [
+            'key' => [],
+            'value' => [],
+            'colors' => []
+        ])->render();
     }
 }
 
