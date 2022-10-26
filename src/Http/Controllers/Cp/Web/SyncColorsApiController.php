@@ -18,7 +18,7 @@ class SyncColorsApiController extends CpController
             abort_unless(auth()->user()->isSuper() || auth()->user()->hasPermission('edit productcolorswatches'), 401);
 
             $settings = (new CollectSettings($file))->handle();
-            $url = (!empty($settings->values['product_color_swatches_route_url'])) ? $settings->values['product_color_swatches_route_url'] : null;
+            $url = (! empty($settings->values['product_color_swatches_route_url'])) ? $settings->values['product_color_swatches_route_url'] : null;
 
             if (is_null($url)) {
                 throw new \Exception('No API URL');
@@ -60,11 +60,10 @@ class SyncColorsApiController extends CpController
 
                     // get hex values from key of importing data via $pluckedColors
                     $colorsArray = [];
-
                     $uniqueColorExplode = explode('_', $uniqueColor);
 
-                    foreach($uniqueColorExplode as $colorItem) {
-                        if(isset($pluckedColors[$colorItem])) {
+                    foreach ($uniqueColorExplode as $colorItem) {
+                        if (isset($pluckedColors[$colorItem])) {
                             $colorsArray[$colorItem] = $pluckedColors[$colorItem];
                         }
                     }
