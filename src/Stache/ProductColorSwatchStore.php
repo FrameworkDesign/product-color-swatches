@@ -24,7 +24,7 @@ class ProductColorSwatchStore extends BasicStore
             return array_pull($array, $key, $default);
         }
 
-        return \Statamic\Support\Arr::pull($array, $key, $default);
+        return \Illuminate\Support\Arr::pull($array, $key, $default);
     }
 
     public function makeItemFromFile($path, $contents)
