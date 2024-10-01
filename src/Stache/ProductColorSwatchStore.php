@@ -71,7 +71,7 @@ class ProductColorSwatchStore extends BasicStore
      * @param mixed  $default The default value to return if the key doesn't exist.
      * @return mixed The value that was pulled, or the default value if the key doesn't exist.
      */
-    function rawArrayPull(&$array, $key)
+    function rawArrayPull(&$array, $key, $default = null)
     {
         // Check if the key exists in the array
         if (array_key_exists($key, $array)) {
